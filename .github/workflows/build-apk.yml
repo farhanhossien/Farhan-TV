@@ -35,8 +35,18 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug > ../build_log.txt 2>&1
           mv app/build/outputs/apk/debug/app-debug.apk ../app-release.apk
+
+      - name: Commit and Push Build Logs on Failure
+        if: failure()
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b build-logs
+          git add build_log.txt
+          git commit -m "Build log on failure"
+          git push origin build-logs --force
 
       - name: Create or Update Release
         uses: softprops/action-gh-release@v2
