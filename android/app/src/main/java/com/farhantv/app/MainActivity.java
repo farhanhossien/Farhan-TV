@@ -13,11 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private WebView webView;
 
     @Override
-    protected void Bundle(Bundle savedInstanceState) {
-        // Fallback placeholder Bundle method name
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
