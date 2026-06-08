@@ -193,9 +193,14 @@ export default function App() {
                   <p className="text-[10px] text-teal-400 font-semibold mt-1">v6.0.0 - Android Mobile & TV Supported</p>
                 </div>
               </div>
-              <button className="bg-teal-500 hover:bg-teal-600 text-[#070913] p-1.5 rounded-lg transition-all active:scale-95 cursor-pointer flex items-center justify-center">
+              <a
+                href="https://github.com/farhanhossien/Farhan-TV/releases/latest/download/app-release.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-teal-500 hover:bg-teal-600 text-[#070913] p-1.5 rounded-lg transition-all active:scale-95 cursor-pointer flex items-center justify-center"
+              >
                 <ArrowRight className="w-4 h-4 font-bold" />
-              </button>
+              </a>
             </div>
 
             {/* Search Input Box */}
