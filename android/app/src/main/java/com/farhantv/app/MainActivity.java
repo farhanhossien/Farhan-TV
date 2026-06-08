@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebChromeClient(new WebChromeClient());
 
         // Load the hosted TV portal URL
-        webView.loadUrl("https://farhanhossien.github.io/Farhan-TV/");
+        webView.loadUrl("https://farhanhossien.online/");
     }
 
     private void hideSystemUI() {
