@@ -36,7 +36,7 @@ jobs:
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
-          mv app/build/outputs/apk/debug/app-debug.apk ../app-release.apk
+          mv app/build/outputs/apk/debug/app-debug.apk "../Farhan TV.apk"
 
       - name: Create or Update Release
         uses: softprops/action-gh-release@v2
@@ -46,6 +46,6 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            app-release.apk
+            Farhan TV.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
