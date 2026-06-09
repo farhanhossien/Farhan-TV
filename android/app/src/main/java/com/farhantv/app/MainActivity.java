@@ -31,11 +31,19 @@ public class MainActivity extends AppCompatActivity {
         webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         webSettings.setMediaPlaybackRequiresUserGesture(false); // Enable video autoplay
 
+        final View splashScreen = findViewById(R.id.splash_screen);
+
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                splashScreen.setVisibility(View.GONE);
             }
         });
 
@@ -95,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Load the hosted TV portal URL
-        webView.loadUrl("https://farhanhossien.online/");
+        webView.loadUrl("https://farhanhossien.github.io/Farhan-TV/");
     }
 
     private void hideSystemUI() {
