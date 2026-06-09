@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Search, Tv, Download, ArrowRight, Maximize2 } from "lucide-react";
 import { motion } from "motion/react";
 import { CHANNELS_DATA } from "./channelsData";
@@ -9,6 +9,20 @@ import VideoPlayer from "./components/VideoPlayer";
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const handleResizeOrScroll = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("resize", handleResizeOrScroll);
+    document.addEventListener("fullscreenchange", handleResizeOrScroll);
+    document.addEventListener("webkitfullscreenchange", handleResizeOrScroll);
+    return () => {
+      window.removeEventListener("resize", handleResizeOrScroll);
+      document.removeEventListener("fullscreenchange", handleResizeOrScroll);
+      document.removeEventListener("webkitfullscreenchange", handleResizeOrScroll);
+    };
+  }, []);
 
   // Default priority channels list for initial selection
   const sortedDefaultChannels = useMemo(() => {
